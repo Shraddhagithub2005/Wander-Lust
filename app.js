@@ -47,6 +47,11 @@ const userRouter = require("./routes/user.js");
 const dbUrl = process.env.ATLASDB_URL;
 
 
+app.get("/", (req, res) => {
+    res.redirect("/listings"); // or res.render("home"); if you have a home.ejs
+});
+
+
 main()
     .then(() =>{
         console.log("connected to DB");
