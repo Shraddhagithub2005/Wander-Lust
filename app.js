@@ -78,7 +78,7 @@ const store = MongoStore.create({
     touchAfter: 24* 3600,
 });
 
-store.on("error", () =>{
+store.on("error", (err) =>{
     console.log("Error in Mongo Session Store", err);
 
 });
@@ -88,9 +88,9 @@ const sessionOptions = {
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    Cookie: {
+    cookie: {
         expires: Date.now() + 7 * 24 * 60 * 1000,
-        maxAge: 7 * 24 * 60 * 1000,
+        maxAge:7 * 24 * 60 * 60 * 1000,
         httpOnly:true
     },
 };
